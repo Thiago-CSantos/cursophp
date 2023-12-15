@@ -1,6 +1,6 @@
-# Nome do Projeto
+# Curso de PHP
 
-Descrição curta e objetiva do seu projeto.
+projetos de estudo 
 
 ## Índice
 
