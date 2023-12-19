@@ -10,22 +10,20 @@
 
 <body>
       <?php
-      $valor1 = $_GET['v1'] ?? 0;
-      $valor2 = $_GET["v2"] ?? 0;
-
-      $resultado = $valor1 + $valor2;
+      $dividendo = $_GET['dividendo'] ?? 1;
+      $divisor = $_GET["divisor"] ?? 1;
       ?>
 
       <header>
-            <h1>Apresente-se para nós</h1>
+            <h1>Anatomia de uma Divisão</h1>
       </header>
       <main>
             <form action="<?= $_SERVER["PHP_SELF"] ?>" method="get">
-                  <label for="v1">Valor 1: </label>
-                  <input type="number" name="v1" id="idv1" value="<?= $valor1 ?>">
+                  <label for="v1">Dividendo: </label>
+                  <input type="number" name="dividendo" id="idv1" min="0" value="<?= $dividendo ?>">
 
-                  <label for="v2">Sobrenome: </label>
-                  <input type="number" name="v2" id="idv2" value="<?= $valor2 ?>">
+                  <label for="v2">Divisor: </label>
+                  <input type="number" name="divisor" id="idv2" min="1" value="<?= $divisor ?>">
 
                   <input type="submit" value="Somar">
             </form>
@@ -35,7 +33,16 @@
       <section id="result">
             <h2>Resultado da Soma</h2>
             <?php
-            echo "<p>Resultado da soma: <b>$resultado</b></p>";
+            $quociente = intdiv($dividendo, $divisor);
+            $resto = $dividendo % $divisor;
+            echo "
+                  <ul> 
+                        <li>Dividendo: $dividendo</li>
+                        <li>Divisor: $divisor</li> 
+                        <li>Quociente: $quociente</li>
+                        <li>Resto: $resto</li>
+                  </ul> 
+            ";
             ?>
       </section>
 </body>
